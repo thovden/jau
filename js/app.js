@@ -52,6 +52,20 @@ app.controller("JauCtrl", ["$scope", "$firebase",
 	 	messageRef.push($scope.name);
 	}
 
+	$scope.getJauStyle = function(index) {
+		var styles = [
+			"jau1 wow1 fadeInDown", 
+			"jau2 wow pulse", 
+			"jau3 wow slideInRight", 
+			"jau4 wow bounceInLeft", 
+			"jau5 wow slideInLeft"
+		];
+		var style = styles[index % styles.length];
+		console.log("Style for index " + index + ": " + style);
+		return style;
+
+	}
+
 	$scope.logout = function() {
 		$scope.user = undefined;
 		$scope.name = undefined;

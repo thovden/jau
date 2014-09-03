@@ -1,0 +1,59 @@
+h1 {
+  font-size:     172px;
+  line-height:   1.5;
+  color: #2c3e50;
+  font-weight:   100;
+}
+
+.jau {
+  text-align: center;
+  font-size: 128px;
+  font-weight: 500;
+}
+
+.jau-from {
+  text-align: right;
+  font-weight: 200;
+}
+
+.jau1 {
+  background-color: #f1c40f;
+}
+
+.jau2 {
+  background-color: #e74c3c;;
+}
+
+.jau3 {
+  background-color: #9b59b6;
+}
+
+.jau4 {
+  background-color: #3498db;
+}
+
+.jau5 {
+  background-color: #2ecc71;
+}
+
+#container {
+  width:  980px;
+  margin: 0 auto;
+}
+
+section {
+  height: 180px;
+  margin: 40px;
+/*  width: 100%;
+*/  margin-left: 20px;
+  margin-right: 20px;
+}
+
+
+#main {
+  text-align: center;
+}
+
+#more {
+  margin: 20px auto 48px;
+}

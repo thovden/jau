@@ -14,11 +14,27 @@
 <script src="https://cdn.firebase.com/js/simple-login/1.6.3/firebase-simple-login.js"></script>
 
 <script src="js/app.js"></script>
-<!-- <script src="js/auth.js"></script>
- -->
+
+
+<link rel="stylesheet" href="css/site.css">
+
+<!-- Bling -->
+<link rel="stylesheet" href="libs/animate/animate.css">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
 </head>
 
 <body ng-app="jauApp" ng-controller="JauCtrl">
+
 <form ng-hide="loggedIn">
 <input ng-model="name" type="text">
 <button  ng-click="authClient.login('anonymous', {'rememberMe': true})">Login</button>
@@ -26,23 +42,39 @@
 
 <div ng-show="loggedIn">
 <h1>Jau, {{name}}</h1>
-<!-- {{messages}} -->
-  <ul>
-    <li ng-repeat="message in messages ">
-      [{{$index + 1}}] {{message}}
-    </li>
-    <li class="animate-repeat" ng-if="results.length == 0">
-      <strong>No results found...</strong>
-    </li>
-  </ul>
+  <!-- {{messages}} -->
+
+  <section ng-repeat="message in messages" ng-class="getJauStyle($index)"  >
+      <div class="jau">Jau</div>
+      <div class="jau-from"> <i class="fa fa-2x fa-user"> {{message}}</i> </div>
+  </section>
+
   <button ng-show="loggedIn" ng-click="logout()">Logout {{user.uid}}</button>
 
-<form name="sendMessages">
-<input ng-model="jauTo" type="text">
-<button ng-click="sendJau()">Jau!</button>
-</form>
-
+  <form name="sendMessages">
+  <input ng-model="jauTo" type="text">
+  <button ng-click="sendJau()">Jau!</button>
+  </form>
 </div>
+
+      <section class="wow fadeInDown jau1"></section>
+      <section class="wow pulse jau2" data-wow-iteration="infinite" data-wow-duration="1500ms"></section>
+      <section class="jau3 wow slideInRight" data-wow-delay="2s"></section>
+      <section class="jau4 wow bounceInLeft" data-wow-offset="300"></section>
+      <section class="jau5 wow slideInLeft" data-wow-duration="4s"></section> -->
+
+<script src="libs/wow/wow.min.js"></script>
+<script>
+ var wow = new WOW(
+  {
+    boxClass:     'wow',      // animated element css class (default is wow)
+    animateClass: 'animated', // animation css class (default is animated)
+    offset:       0,          // distance to the element when triggering the animation (default is 0)
+    mobile:       true       // trigger animations on mobile devices (true is default)
+    }
+  );
+  wow.init();
+</script>
 
 </body>
 </html>
