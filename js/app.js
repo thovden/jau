@@ -16,13 +16,28 @@ app.controller("JauCtrl", ["$scope", "$firebase",
 			$scope.loggedIn = true;
 			$scope.user = user;
 
-			var ref = new Firebase("https://jau.firebaseio.com/users/" + $scope.user.uid  + "/messages");
-			    // create an AngularFire reference to the data
-		    var sync = $firebase(ref);
-    		// download the data into a local object
-    		var syncObject = sync.$asObject();
+		 	
+		 	var nameRef = new Firebase("https://jau.firebaseio.com/users/" + $scope.user.uid  + "/name");
 
-    		syncObject.$bindTo($scope, "messages");
+	 		nameRef.on("value", function(name) {
+				if (! name.val()) {
+					nameRef.set($scope.name);
+				} else {
+					$scope.name = name.val();
+				}
+				console.log(name.val());
+
+				// Listen to messages
+			 	var messageRef = new Firebase("https://jau.firebaseio.com/name/" + $scope.name  + "/messages");
+				    // create an AngularFire reference to the data
+			    var sync = $firebase(messageRef);
+	    		// download the data into a local object
+	    		var syncObject = sync.$asObject();
+
+	    		syncObject.$bindTo($scope, "messages");
+
+	   			$scope.$apply();
+			});
 
 		} else {
 		// user is logged out
@@ -30,6 +45,12 @@ app.controller("JauCtrl", ["$scope", "$firebase",
 	 		$scope.user = {};
 		}
 	});
+
+	$scope.logout = function() {
+		$scope.user = undefined;
+		$scope.name = undefined;
+		$scope.authClient.logout();
+	}
 
 	var authRef = new Firebase("https://jau.firebaseio.com/.info/authenticated");
 	authRef.on("value", function(snap) {

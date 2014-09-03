@@ -19,10 +19,13 @@
 </head>
 
 <body ng-app="jauApp" ng-controller="JauCtrl">
+<form ng-hide="loggedIn">
+<input ng-model="name" type="text">
+<button  ng-click="authClient.login('anonymous', {'rememberMe': true})">Login</button>
+</form>
 
-<button ng-hide="loggedIn" ng-click="authClient.login('facebook')">Login with Facebook</button>
-
-<h1>Jau, {{user.displayName}}, {{user.uid}}</h1>
+<div ng-show="loggedIn">
+<h1>Jau, {{name}}</h1>
 <!-- {{messages}} -->
   <ul>
     <li ng-repeat="message in messages ">
@@ -32,5 +35,8 @@
       <strong>No results found...</strong>
     </li>
   </ul>
+  <button ng-show="loggedIn" ng-click="logout()">Logout {{user.uid}}</button>
+</div>
+
 </body>
 </html>
