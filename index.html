@@ -10,13 +10,19 @@
 <!-- AngularFire -->
 <script src="https://cdn.firebase.com/libs/angularfire/0.8.2/angularfire.min.js"></script>
 
+<!-- Auth -->
+<script src="https://cdn.firebase.com/js/simple-login/1.6.3/firebase-simple-login.js"></script>
+
 <script src="js/app.js"></script>
+<!-- <script src="js/auth.js"></script>
+ -->
 </head>
 
 <body ng-app="jauApp" ng-controller="JauCtrl">
 
+<button ng-click="authClient.login('facebook')">Login with Facebook</button>
 
-{{data}}
+<h1>Jau, {{user.displayName}}</h1>
 
 </body>
 </html>
