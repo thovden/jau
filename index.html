@@ -13,55 +13,73 @@
 <!-- Auth -->
 <script src="https://cdn.firebase.com/js/simple-login/1.6.3/firebase-simple-login.js"></script>
 
-<script src="js/app.js"></script>
-
-
-<link rel="stylesheet" href="css/site.css">
 
 <!-- Bling -->
 <link rel="stylesheet" href="libs/animate/animate.css">
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
+<link rel="stylesheet" href="libs/magic/magic.css">
+
+<!-- Bootstrap -->
+
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
+<!-- Optional theme -->
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+ -->
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+<!-- OUR STUFF -->
+<script src="js/app.js"></script>
+<link rel="stylesheet" href="css/site.css">
+
 
 </head>
 
 <body ng-app="jauApp" ng-controller="JauCtrl">
 
-<form ng-hide="loggedIn">
-<input ng-model="name" type="text">
-<button  ng-click="authClient.login('anonymous', {'rememberMe': true})">Login</button>
+<!-- Log in form -->
+<form role="form" class="form-inline wow swing jau-login"  data-wow-duration="3s" ng-hide="loggedIn">
+<div class="form-group">
+<input class="jau-send" ng-model="name" type="text" placeholder="Ditt eget Jau">
+</div>
+<button  class="btn btn-lg btn-success" ng-click="authClient.login('anonymous', {'rememberMe': true})">Jau</button>
 </form>
 
-<div ng-show="loggedIn">
-<h1>Jau, {{name}}</h1>
-  <!-- {{messages}} -->
 
-  <section ng-repeat="message in messages" ng-class="getJauStyle($index)"  >
-      <div class="jau">Jau</div>
-      <div class="jau-from"> <i class="fa fa-2x fa-user"> {{message}}</i> </div>
+
+<div ng-show="loggedIn">
+
+<section class="wow bounce center" data-wow-duration="1s"><h1>{{name}}: Jau</h1></section>
+
+  <form role="form" class="form-inline wow pulse center"  data-wow-duration="3s" name="sendMessages">
+  <div class="form-group">
+    <input class="jau-send" ng-model="jauTo" type="text" placeholder="Jau, jau til...">
+  </div>
+    <button type="submit" class="btn btn-lg btn-success" ng-click="sendJau()">Jau!</button>
+  </form>
+
+  <!-- {{messages}} -->
+  <section ng-repeat="message in messages" ng-class="getJauStyle($index)"  data-wow-offset="200"  >
+  <div class="jau-container">
+    <div class="jau-from"> <i class="fa fa-2x fa-user"> {{message}}</i> </div>
+    <div class="jau">Jau</div> 
+    <div class="jau-close"><i class="fa fa-2x fa-close"></i></div>
+  </div>
+
   </section>
 
-  <button ng-show="loggedIn" ng-click="logout()">Logout {{user.uid}}</button>
-
-  <form name="sendMessages">
-  <input ng-model="jauTo" type="text">
-  <button ng-click="sendJau()">Jau!</button>
-  </form>
 </div>
 
-      <section class="wow fadeInDown jau1"></section>
-      <section class="wow pulse jau2" data-wow-iteration="infinite" data-wow-duration="1500ms"></section>
-      <section class="jau3 wow slideInRight" data-wow-delay="2s"></section>
-      <section class="jau4 wow bounceInLeft" data-wow-offset="300"></section>
-      <section class="jau5 wow slideInLeft" data-wow-duration="4s"></section> -->
+<form class="form-inline wow pulse center">
+<button type="submit" class="btn btn-alert btn-lg center" ng-show="loggedIn" ng-click="logout()">Jau, jau {{name}}</button>
+</form>
+
 
 <script src="libs/wow/wow.min.js"></script>
 <script>

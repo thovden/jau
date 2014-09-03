@@ -1,19 +1,72 @@
+body {
+background: #ABB7B7;
+background-image: -ms-linear-gradient(bottom left, #336E7B 0%, #8E44AD 50%, #E74C3C 100%);
+background-image: -moz-linear-gradient(bottom left, #336E7B 0%, #8E44AD 50%, #E74C3C 100%);
+background-image: -o-linear-gradient(bottom left, #336E7B 0%, #8E44AD 50%, #E74C3C 100%);
+background-image: -webkit-gradient(linear, left bottom, right top, color-stop(0, #336E7B), color-stop(0.5, #8E44AD), color-stop(1, #E74C3C));
+background-image: -webkit-linear-gradient(bottom left, #336E7B 0%, #8E44AD 50%, #E74C3C 100%);
+background-image: linear-gradient(to top right, #336E7B 0%, #8E44AD 50%, #E74C3C 100%);
+}
+
 h1 {
-  font-size:     172px;
-  line-height:   1.5;
+  font-size:     120px;
+  line-height:   1;
   color: #2c3e50;
   font-weight:   100;
+  text-align: center;
+}
+
+.center {
+  text-align: center;
+}
+
+.jau-send {
+  font-size: 24px;
+}
+
+.jau-login {
+    width: 370px;
+    height: 100px;
+
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+}
+
+.jau-container {
+  width: 100%;
 }
 
 .jau {
+  width: 48%;
+  vertical-align: center;
+  display: inline-block;
   text-align: center;
   font-size: 128px;
   font-weight: 500;
 }
 
 .jau-from {
-  text-align: right;
+  width: 23%;
+  vertical-align: top;
+  margin-left: 10px;
+  margin-top: 10px;
+  display: inline-block;
+  text-align: left;
   font-weight: 200;
+}
+
+.jau-close {
+  width: 23%;
+  margin-left: 10px;
+  margin-top: 10px;
+  vertical-align: top;
+  display: inline-block;
+  text-align: right;
 }
 
 .jau1 {
@@ -43,10 +96,11 @@ h1 {
 
 section {
   height: 180px;
-  margin: 40px;
+  margin-top: 40px;
 /*  width: 100%;
 */  margin-left: 20px;
   margin-right: 20px;
+  opacity: 0.8;
 }
 
 

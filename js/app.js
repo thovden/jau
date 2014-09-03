@@ -43,6 +43,7 @@ app.controller("JauCtrl", ["$scope", "$firebase",
 		// user is logged out
 			$scope.loggedIn = false;
 	 		$scope.user = {};
+	 		$scope.$apply();
 		}
 	});
 
@@ -54,11 +55,14 @@ app.controller("JauCtrl", ["$scope", "$firebase",
 
 	$scope.getJauStyle = function(index) {
 		var styles = [
-			"jau1 wow1 fadeInDown", 
-			"jau2 wow pulse", 
-			"jau3 wow slideInRight", 
-			"jau4 wow bounceInLeft", 
-			"jau5 wow slideInLeft"
+			"jau1 wow fadeInDown", 
+			"jau2 wow wobble", 
+			"jau3 wow pulse", 
+			"jau4 wow bounceInDown", 
+			"jau5 wow swing", 
+			"jau3 wow flipInX", 
+			"jau2 wow tada", 
+			"jau1 wow lightSpeedIn"
 		];
 		var style = styles[index % styles.length];
 		console.log("Style for index " + index + ": " + style);
