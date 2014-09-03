@@ -20,9 +20,17 @@
 
 <body ng-app="jauApp" ng-controller="JauCtrl">
 
-<button ng-click="authClient.login('facebook')">Login with Facebook</button>
+<button ng-hide="loggedIn" ng-click="authClient.login('facebook')">Login with Facebook</button>
 
-<h1>Jau, {{user.displayName}}</h1>
-
+<h1>Jau, {{user.displayName}}, {{user.uid}}</h1>
+<!-- {{messages}} -->
+  <ul>
+    <li ng-repeat="message in messages ">
+      [{{$index + 1}}] {{message}}
+    </li>
+    <li class="animate-repeat" ng-if="results.length == 0">
+      <strong>No results found...</strong>
+    </li>
+  </ul>
 </body>
 </html>
