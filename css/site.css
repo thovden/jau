@@ -16,6 +16,14 @@ h1 {
   text-align: center;
 }
 
+h2 {
+  font-size:     80px;
+  line-height:   1;
+  color: #2c3e50;
+  font-weight:   100;
+  text-align: center;  
+}
+
 .center {
   text-align: center;
 }

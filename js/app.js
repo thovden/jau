@@ -51,6 +51,13 @@ app.controller("JauCtrl", ["$scope", "$firebase",
 
 	 	var messageRef = new Firebase("https://jau.firebaseio.com/name/" + $scope.jauTo  + "/messages");
 	 	messageRef.push($scope.name);
+	 	$scope.jauTo = "";
+	 	$scope.sending = true;
+	 	setTimeout(function() {
+	 		$scope.sending=false;
+	 		$scope.$apply();
+	 	}, 3000);
+
 	}
 
 	$scope.getJauStyle = function(index) {
