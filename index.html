@@ -36,6 +36,12 @@
     </li>
   </ul>
   <button ng-show="loggedIn" ng-click="logout()">Logout {{user.uid}}</button>
+
+<form name="sendMessages">
+<input ng-model="jauTo" type="text">
+<button ng-click="sendJau()">Jau!</button>
+</form>
+
 </div>
 
 </body>

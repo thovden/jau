@@ -46,6 +46,12 @@ app.controller("JauCtrl", ["$scope", "$firebase",
 		}
 	});
 
+	$scope.sendJau = function() {
+
+	 	var messageRef = new Firebase("https://jau.firebaseio.com/name/" + $scope.jauTo  + "/messages");
+	 	messageRef.push($scope.name);
+	}
+
 	$scope.logout = function() {
 		$scope.user = undefined;
 		$scope.name = undefined;
