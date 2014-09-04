@@ -33,13 +33,12 @@ app.controller("JauCtrl", ["$scope", "$firebase",
 			    var sync = $firebase(messageRef);
 	    		// download the data into a local object
 	    		var syncObject = sync.$asObject();
-	    		//messageRef.on("child_added", function(snapshot) {
-	    		//	setTimeout(function() {
-	    		//		snapshot.ref().remove()
-
-
-//			 			}, 3000);
-//	    		});
+	    		messageRef.on("child_added", function(snapshot) {
+	    			$scope.playJau();
+	    			setTimeout(function() {
+	    				snapshot.ref().remove()
+			 			}, 3000);
+	    		});
 
 	    		syncObject.$bindTo($scope, "messages");
 
