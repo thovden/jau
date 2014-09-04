@@ -21,7 +21,7 @@ h2 {
   line-height:   1;
   color: #2c3e50;
   font-weight:   100;
-  text-align: center;  
+  text-align: center;
 }
 
 .center {
@@ -50,11 +50,11 @@ h2 {
 }
 
 .jau {
-  width: 48%;
+  width: 80;
   vertical-align: center;
   display: inline-block;
   text-align: center;
-  font-size: 128px;
+  font-size: 80px;
   font-weight: 500;
 }
 
