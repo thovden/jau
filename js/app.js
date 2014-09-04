@@ -37,7 +37,7 @@ app.controller("JauCtrl", ["$scope", "$firebase",
 	    			$scope.playJau();
 	    			setTimeout(function() {
 	    				snapshot.ref().remove()
-			 			}, 3000);
+			 			}, 5000);
 	    		});
 
 	    		syncObject.$bindTo($scope, "messages");
@@ -72,6 +72,7 @@ app.controller("JauCtrl", ["$scope", "$firebase",
 	 	$scope.sending = true;
 	 	setTimeout(function() {
 	 		$scope.sending=false;
+	 		$scope.$apply();
 	 	}, 3000);
 
 	 	var friendsRef = new Firebase("https://jau.firebaseio.com/name/" + $scope.name  + "/friends");
