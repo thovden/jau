@@ -8,7 +8,7 @@
 <script src="https://cdn.firebase.com/js/client/1.0.21/firebase.js"></script>
 
 <!-- AngularFire -->
-<script src="https://cdn.firebase.com/libs/angularfire/0.8.2/angularfire.min.js"></script>
+<script src="https://cdn.firebase.com/libs/angularfire/0.8.2/angularfire.js"></script>
 
 <!-- Auth -->
 <script src="https://cdn.firebase.com/js/simple-login/1.6.3/firebase-simple-login.js"></script>
@@ -61,33 +61,29 @@
 
 
 <div ng-show="loggedIn">
+  <section ng-repeat="message in messages" ng-class="getJauStyle($index)"  data-wow-offset="200"  >
+  <div class="jau-container">
+    <div class="jau">jau: {{message}}</div>
+  </div>
 
-<section class="wow bounce center" data-wow-duration="1s"><h1>{{name}}: Jau</h1></section>
+  </section>
 
-<section ng-show="sending" class="wow tada center" data-wow-duration="4s"><h2>Jau Jau Jau</h2></section>
+<!--- <section ng-show="sending" class="wow tada center" data-wow-duration="4s"><h2>Jau Jau Jau</h2></section> -->
 
 
+
+
+  <section ng-repeat="friend in friends" ng-class="getFriendsStyle($index)"  data-wow-offset="200"  >
+  <div class="jau-container">
+    <div class="jau" ng-click="sendJauTo(friend.$id)">{{friend.$id}}</div>
+  </div>
+</section>
   <form role="form" class="form-inline wow pulse center"  data-wow-duration="3s" name="sendMessages">
   <div class="form-group">
     <input class="jau-send" ng-model="jauTo" type="text" placeholder="Jau, jau til...">
   </div>
     <button type="submit" class="btn btn-lg btn-success" ng-click="sendJau()">Jau!</button>
   </form>
-
-  <section ng-repeat="friend in friends" ng-class="getFriendsStyle($index)"  data-wow-offset="200"  >
-  <div class="jau-container">
-    <div class="jau">{{friend.$id}}</div>
-  </div>
-</section>
-  <!-- {{messages}} -->
-  <section ng-repeat="message in messages" ng-class="getJauStyle($index)"  data-wow-offset="200"  >
-  <div class="jau-container">
-    <div class="jau-from"> <i class="fa fa-2x fa-user"> {{message}}</i> </div>
-    <div class="jau">Jau</div>
-    <div class="jau-close"><i class="fa fa-2x fa-close"></i></div>
-  </div>
-
-  </section>
 
 </div>
 

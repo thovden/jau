@@ -33,6 +33,13 @@ app.controller("JauCtrl", ["$scope", "$firebase",
 			    var sync = $firebase(messageRef);
 	    		// download the data into a local object
 	    		var syncObject = sync.$asObject();
+	    		//messageRef.on("child_added", function(snapshot) {
+	    		//	setTimeout(function() {
+	    		//		snapshot.ref().remove()
+
+
+//			 			}, 3000);
+//	    		});
 
 	    		syncObject.$bindTo($scope, "messages");
 
@@ -55,39 +62,29 @@ app.controller("JauCtrl", ["$scope", "$firebase",
 	});
 
 	$scope.sendJau = function() {
+		$scope.sendJauTo($scope.jauTo)
+	 	$scope.jauTo = "";
+	}
 
-	 	var messageRef = new Firebase("https://jau.firebaseio.com/name/" + $scope.jauTo  + "/messages");
+	$scope.sendJauTo = function(jauTo) {
+		 var messageRef = new Firebase("https://jau.firebaseio.com/name/" + jauTo  + "/messages");
 	 	messageRef.push($scope.name);
 
 	 	$scope.sending = true;
 	 	setTimeout(function() {
 	 		$scope.sending=false;
-	 		$scope.$apply();
 	 	}, 3000);
 
 	 	var friendsRef = new Firebase("https://jau.firebaseio.com/name/" + $scope.name  + "/friends");
-	 	var jauto = $scope.jauTo;
+	 	var jauto = jauTo;
 	 	var emptyMap = {}
 	 	emptyMap[jauto] = true
 	 	friendsRef.set(emptyMap);
-	 	$scope.jauTo = "";
+
 	}
 
 	$scope.getJauStyle = function(index) {
-		var styles = [
-			"jau1 wow fadeInDown",
-			"jau2 wow wobble",
-			"jau3 wow pulse",
-			"jau4 wow bounceInDown",
-			"jau5 wow swing",
-			"jau3 wow flipInX",
-			"jau2 wow tada",
-			"jau1 wow lightSpeedIn"
-		];
-		var style = styles[index % styles.length];
-		// console.log("Style for index " + index + ": " + style);
-		return style;
-
+		return $scope.getFriendsStyle(index) + " bounceInDown bounceOutUp"
 	}
 
 	$scope.getFriendsStyle = function(index) {
@@ -98,8 +95,7 @@ app.controller("JauCtrl", ["$scope", "$firebase",
 			"jau4",
 			"jau5",
 		];
-		var style = styles[index % styles.length];
-		// console.log("Style for index " + index + ": " + style);
+		var style = styles[Math.floor(Math.random()*styles.length)];
 		return style;
 
 	}
