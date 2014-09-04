@@ -83,7 +83,7 @@ app.controller("JauCtrl", ["$scope", "$firebase",
 	}
 
 	$scope.getJauStyle = function(index) {
-		return $scope.getFriendsStyle(index) + " bounceInDown bounceOutUp"
+		return $scope.getFriendsStyle(index) + " wow bounceInDown"
 	}
 
 	$scope.getFriendsStyle = function(index) {
