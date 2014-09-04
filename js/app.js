@@ -78,7 +78,7 @@ app.controller("JauCtrl", ["$scope", "$firebase",
 	 	var jauto = jauTo;
 	 	var emptyMap = {}
 	 	emptyMap[jauto] = true
-	 	friendsRef.push(emptyMap);
+	 	friendsRef.update(emptyMap);
 
 	}
 
