@@ -94,7 +94,7 @@ app.controller("JauCtrl", ["$scope", "$firebase",
 			"jau4",
 			"jau5",
 		];
-		var style = styles[Math.floor(Math.random()*styles.length)];
+		var style = styles[index*styles.length];
 		return style;
 
 	}
