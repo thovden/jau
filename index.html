@@ -51,11 +51,11 @@
 
 
 <!-- Log in form -->
-<form role="form" class="form-inline wow swing jau-login"  data-wow-duration="3s" ng-hide="loggedIn">
+<form role="form" class="form-inline wow swing jau-login"  data-wow-duration="1000ms" ng-hide="loggedIn">
 <div class="form-group">
 <input class="jau-send" ng-model="name" type="text" placeholder="Ditt eget Jau">
 </div>
-<button  class="btn btn-lg btn-success" ng-click="authClient.login('anonymous', {'rememberMe': true})">Jau</button>
+<button type="submit" class="btn btn-lg btn-success" ng-click="authClient.login('anonymous', {'rememberMe': true})">Jau</button>
 </form>
 
 
@@ -96,7 +96,7 @@
 </div>
 
 <form class="form-inline wow pulse center jau-logout">
-<button type="submit" class="btn btn-alert btn-lg center" ng-show="loggedIn" ng-click="logout()">Jau, jau {{name}}</button>
+<button type="submit" class="btn btn-danger btn-lg center" ng-show="loggedIn" ng-click="logout()">Jau, jau {{name}}</button>
 </form>
 
 
