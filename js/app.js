@@ -11,12 +11,12 @@ app.controller("JauCtrl", ["$scope", "$firebase",
 			console.log(error);
 			$scope.loggedIn = false;
 		} else if (user) {
-			
+
 			// user authenticated with Firebase
 			$scope.loggedIn = true;
 			$scope.user = user;
 
-		 	
+
 		 	var nameRef = new Firebase("https://jau.firebaseio.com/users/" + $scope.user.uid  + "/name");
 
 	 		nameRef.on("value", function(name) {
@@ -36,6 +36,13 @@ app.controller("JauCtrl", ["$scope", "$firebase",
 
 	    		syncObject.$bindTo($scope, "messages");
 
+	    				// Listen to friends
+			 	var friendsRef = new Firebase("https://jau.firebaseio.com/name/" + $scope.name  + "/friends");
+				    // create an AngularFire reference to the data
+			    var friendsSync = $firebase(friendsRef);
+	    		// download the data into a local object
+	    		$scope.friends = friendsSync.$asArray();
+
 	   			$scope.$apply();
 			});
 
@@ -51,25 +58,45 @@ app.controller("JauCtrl", ["$scope", "$firebase",
 
 	 	var messageRef = new Firebase("https://jau.firebaseio.com/name/" + $scope.jauTo  + "/messages");
 	 	messageRef.push($scope.name);
-	 	$scope.jauTo = "";
+
 	 	$scope.sending = true;
 	 	setTimeout(function() {
 	 		$scope.sending=false;
 	 		$scope.$apply();
 	 	}, 3000);
 
+	 	var friendsRef = new Firebase("https://jau.firebaseio.com/name/" + $scope.name  + "/friends");
+	 	var jauto = $scope.jauTo;
+	 	var emptyMap = {}
+	 	emptyMap[jauto] = true
+	 	friendsRef.set(emptyMap);
+	 	$scope.jauTo = "";
 	}
 
 	$scope.getJauStyle = function(index) {
 		var styles = [
-			"jau1 wow fadeInDown", 
-			"jau2 wow wobble", 
-			"jau3 wow pulse", 
-			"jau4 wow bounceInDown", 
-			"jau5 wow swing", 
-			"jau3 wow flipInX", 
-			"jau2 wow tada", 
+			"jau1 wow fadeInDown",
+			"jau2 wow wobble",
+			"jau3 wow pulse",
+			"jau4 wow bounceInDown",
+			"jau5 wow swing",
+			"jau3 wow flipInX",
+			"jau2 wow tada",
 			"jau1 wow lightSpeedIn"
+		];
+		var style = styles[index % styles.length];
+		console.log("Style for index " + index + ": " + style);
+		return style;
+
+	}
+
+	$scope.getFriendsStyle = function(index) {
+		var styles = [
+			"jau1",
+			"jau2",
+			"jau3",
+			"jau4",
+			"jau5",
 		];
 		var style = styles[index % styles.length];
 		console.log("Style for index " + index + ": " + style);

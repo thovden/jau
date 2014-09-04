@@ -67,11 +67,16 @@
     <button type="submit" class="btn btn-lg btn-success" ng-click="sendJau()">Jau!</button>
   </form>
 
+  <section ng-repeat="friend in friends" ng-class="getFriendsStyle($index)"  data-wow-offset="200"  >
+  <div class="jau-container">
+    <div class="jau">{{friend.$id}}</div>
+  </div>
+</section>
   <!-- {{messages}} -->
   <section ng-repeat="message in messages" ng-class="getJauStyle($index)"  data-wow-offset="200"  >
   <div class="jau-container">
     <div class="jau-from"> <i class="fa fa-2x fa-user"> {{message}}</i> </div>
-    <div class="jau">Jau</div> 
+    <div class="jau">Jau</div>
     <div class="jau-close"><i class="fa fa-2x fa-close"></i></div>
   </div>
 
