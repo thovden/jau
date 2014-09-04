@@ -15,7 +15,7 @@ app.controller("JauCtrl", ["$scope", "$firebase",
 			// user authenticated with Firebase
 			$scope.loggedIn = true;
 			$scope.user = user;
-
+			$scope.name = $scope.name.trim().toLowerCase();
 
 		 	var nameRef = new Firebase("https://jau.firebaseio.com/users/" + $scope.user.uid  + "/name");
 
@@ -66,6 +66,9 @@ app.controller("JauCtrl", ["$scope", "$firebase",
 	}
 
 	$scope.sendJauTo = function(jauTo) {
+
+		jauTo = jauTo.trim().toLowerCase();
+
 		 var messageRef = new Firebase("https://jau.firebaseio.com/name/" + jauTo  + "/messages");
 	 	messageRef.push($scope.name);
 
