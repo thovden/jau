@@ -28,6 +28,12 @@ h2 {
   text-align: center;
 }
 
+.jau-form {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 .jau-send {
   font-size: 24px;
 }
@@ -49,17 +55,28 @@ h2 {
   width: 100%;
 }
 
-.jau {
-  width: 80;
+.jau-friend {
+  width: 100%;
   vertical-align: center;
   display: inline-block;
   text-align: center;
   font-size: 80px;
-  font-weight: 500;
+  font-weight: 100;
+}
+
+.jau {
+  margin-top: 20px;
+  width: 48%;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 80px;
+  font-weight: 100;
 }
 
 .jau-from {
-  width: 23%;
+  width: 25%;
+  font-size: 60px;
   vertical-align: top;
   margin-left: 10px;
   margin-top: 10px;
@@ -97,18 +114,23 @@ h2 {
   background-color: #2ecc71;
 }
 
+.jau-logout {
+  margin-top: 50px;
+}
+
 #container {
   width:  980px;
   margin: 0 auto;
 }
 
 section {
-  height: 180px;
+  height: 120px;
   margin-top: 40px;
 /*  width: 100%;
 */  margin-left: 20px;
   margin-right: 20px;
   opacity: 0.8;
+  cursor: pointer;
 }
 
 

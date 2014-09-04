@@ -63,31 +63,36 @@
 
   <section ng-repeat="message in messages" ng-class="getJauStyle($index)"  data-wow-offset="200"  >
   <div class="jau-container">
-    <div class="jau-from"><i class="fa fa-2x fa-user">{{message}}</i></div>
-    <div class="jau">Jau</div>
-    <div class="jau-close"></div>
+    <div class="jau-from"><i class="fa fa-user"></i>
+      {{message}}</div>
+    <div class="jau"><i ng-class = "randomIcon()"></i></div>
+<!--     <div class="jau-close"></div> -->
   </div>
 
   </section>
 
-<!-- - <section ng-show="sending" class="wow tada center" data-wow-duration="4s"><h2>Jau Jau Jau</h2></section> 
- -->
-<section ng-repeat="friend in friends" ng-class="getFriendsStyle($index)"  data-wow-offset="200"  >
-  <div class="jau-container">
-    <div class="jau" ng-click="sendJauTo(friend.$id)">{{friend.$id}}</div>
-  </div>
-</section>
-
-  <form role="form" class="form-inline wow pulse center"  data-wow-duration="3s" name="sendMessages">
+<section ng-show="sending" class="wow tada center jau" data-wow-duration="4s"><i class="fa fa-envelope"></i> Jau Jau </section> 
+ 
+  <form role="form" class="form-inline wow pulse jau-form"  data-wow-duration="3s" name="sendMessages">
   <div class="form-group">
     <input class="jau-send" ng-model="jauTo" type="text" placeholder="Jau, jau til...">
   </div>
     <button type="submit" class="btn btn-lg btn-success" ng-click="sendJau()">Jau!</button>
   </form>
 
+<section ng-repeat="friend in friends" ng-class="getFriendsStyle($index)"  data-wow-offset="200"  >
+  <div class="jau-container">
+    <div class="jau-friend" ng-click="sendJauTo(friend.$id)">
+    <i class="fa fa-user"></i>
+    {{friend.$id}}
+    </div>
+  </div>
+</section>
+
+
 </div>
 
-<form class="form-inline wow pulse center">
+<form class="form-inline wow pulse center jau-logout">
 <button type="submit" class="btn btn-alert btn-lg center" ng-show="loggedIn" ng-click="logout()">Jau, jau {{name}}</button>
 </form>
 
