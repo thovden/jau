@@ -15,17 +15,17 @@ app.controller("JauCtrl", ["$scope", "$firebase",
 			// user authenticated with Firebase
 			$scope.loggedIn = true;
 			$scope.user = user;
-			$scope.name = $scope.name.trim().toLowerCase();
 
 		 	var nameRef = new Firebase("https://jau.firebaseio.com/users/" + $scope.user.uid  + "/name");
 
 	 		nameRef.on("value", function(name) {
 				if (! name.val()) {
-					nameRef.set($scope.name);
+					nameRef.set($scope.name.trim().toLowerCase());
 				} else {
 					$scope.name = name.val();
 				}
 				console.log(name.val());
+				$scope.name = $scope.name.trim().toLowerCase();
 
 				// Listen to messages
 			 	var messageRef = new Firebase("https://jau.firebaseio.com/name/" + $scope.name  + "/messages");
@@ -119,7 +119,7 @@ app.controller("JauCtrl", ["$scope", "$firebase",
 
     $scope.randomIcon = function() {
     	var icon = iconArray[Math.floor(iconArray.length * Math.random())];
-    	console.log(icon);
+    	// console.log(icon);
     	return icon;
     }
 
