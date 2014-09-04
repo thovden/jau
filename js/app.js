@@ -85,7 +85,7 @@ app.controller("JauCtrl", ["$scope", "$firebase",
 			"jau1 wow lightSpeedIn"
 		];
 		var style = styles[index % styles.length];
-		console.log("Style for index " + index + ": " + style);
+		// console.log("Style for index " + index + ": " + style);
 		return style;
 
 	}
@@ -99,10 +99,18 @@ app.controller("JauCtrl", ["$scope", "$firebase",
 			"jau5",
 		];
 		var style = styles[index % styles.length];
-		console.log("Style for index " + index + ": " + style);
+		// console.log("Style for index " + index + ": " + style);
 		return style;
 
 	}
+
+	// This is not kosher but needed a quick hack
+	$scope.playJau = function() {
+		// var audio = angular.element( document.querySelector( '#player' ) );
+ 		var audio = document.getElementById('player');
+		
+		audio.play();
+    }
 
 	$scope.logout = function() {
 		$scope.user = undefined;

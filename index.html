@@ -43,6 +43,13 @@
 
 <body ng-app="jauApp" ng-controller="JauCtrl">
 
+<audio id="player">
+  <source src="audio/Jau.wav" type="audio/wav">
+  Your browser does not support the audio tag.
+</audio>
+<button ng-click="playJau()">Play</button>
+
+
 <!-- Log in form -->
 <form role="form" class="form-inline wow swing jau-login"  data-wow-duration="3s" ng-hide="loggedIn">
 <div class="form-group">
