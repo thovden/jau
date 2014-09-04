@@ -78,7 +78,7 @@ app.controller("JauCtrl", ["$scope", "$firebase",
 	 	var jauto = jauTo;
 	 	var emptyMap = {}
 	 	emptyMap[jauto] = true
-	 	friendsRef.set(emptyMap);
+	 	friendsRef.push(emptyMap);
 
 	}
 
@@ -103,7 +103,7 @@ app.controller("JauCtrl", ["$scope", "$firebase",
 	$scope.playJau = function() {
 		// var audio = angular.element( document.querySelector( '#player' ) );
  		var audio = document.getElementById('player');
-		
+
 		audio.play();
     }
 
